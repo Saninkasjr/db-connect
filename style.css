@@ -1,0 +1,149 @@
+#msgbtn {
+  color: #fff;
+  background: #444;
+  border: none;
+  outline: none;
+  padding: 25px; /* Adjusted padding */
+  cursor: pointer;
+  font-size: 2rem; /* Adjusted font size */
+  text-align: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#userMsg {
+       font-size: 1.25rem;
+       border-radius: 15px;
+       border: 1px solid transparent;
+       background-color: #f9f9f9;
+       padding: 10px;
+       outline: none 2px black  ;
+       min-width: 70%;
+       max-width: 70%;
+      color: #333;
+       placeholder-color: #999;
+       box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+       margin-right: 10px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/*this the styling for the container of the login */
+body {
+  font-family: Georgia;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container , .Register{
+  position: relative;
+  bottom: -7vh;
+  height: 92vh;
+  backdrop-filter: blur(5px);
+ 
+}
+.login , .signup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  text-align: center;
+  width: 300px;
+  z-index: 1000; /* Ensure the form is above other content */
+}
+
+.login h1 , .signup h1 {
+  margin-bottom: 20px;
+}
+
+.login input[type="text"] , #password , #userR , #passR {
+  width: 65%;
+  padding: 12px 55px;
+  font-size: 20px;
+  margin-bottom: 15px;
+  border: none;
+  outline: none;
+  border-radius: 60%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.login button, #btnR {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 10px 30px;
+  width: 80%;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: auto;
+  font-family: inherit;
+  transition: background-color 0.3s ease;
+}
+#btnRD , #btnLD{
+      color: rgba(0,190,255,1);
+      font-family: Georgia;
+      background: none;
+      padding: 0px 0px;
+      height: auto;
+      width: auto;
+      outline: none;
+      border: none;
+      margin-top: 10px;
+      font-size: 1.7rem;
+      z-index: 100;
+}
+
+.login button:hover {
+  transform: scale(1.05);
+  transition: 1s;
+}
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 999; /* Ensure the backdrop is below the form */
+  display: none;
+}
+/*end of styling for the container of the login */
+.sid {
+    visibility: visible;
+}
+.hid {
+     display: none;
+}
+.shaw {
+     display: inline;
+}
+.reply2 {
+     text-align: center;
+}
+.reply ,.reply3 {
+     margin-top: 0px;
+     color: rgba(0,200,0,1);
+}
+.Register {
+    display: none;
+}

@@ -4,28 +4,148 @@
           <meta http-equiv="content-type" content="text/html; charset=utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>database fetch and update</title>
+          <link rel="stylesheet" href="/font-awesome/css/all.min.css">
+          <link rel="stylesheet" href="/public/style.css" type="text/css" media="all" />
      </head>
      <body>
-        <input type="text" name="username" id="username" />
-        <button type="button" id="button">send</button>
+        
+    <div class="reply2"></div>
+    <div class="input-wrapper">
+         <textarea  type="text" name="userMsg" id="userMsg" placeholder="enter your message..."></textarea>
+        <button type="button" id="msgbtn"><i class="fas fa-bolt" id="sendButton"></i> </button>
+    </div>
+    <div class="container">
+  <div class="blur"></div>
+  <div class="login">
+    <h1>login<i>!!</i></h1>
+    <input type="text" name="username" id="username" placeholder="enter your username" autocomplete="username"/>
+   <input type="password" name="password" id="password" placeholder="enter your password" autocomplete="password"/>
+    <button id="loginbtn" type="button">Enter</button>
+    <div class="reply"><i> </i>
     
-    <script type="text/javascript" charset="utf-8">
-         const username = document.querySelector('#username');
-         const button = document.querySelector('#button');
+    </div> 
+    <button id="btnRD"> sign up? </button>
+    </div>
+    </div>
+    <div class="Register">
+  <div class="signup">
+    <h1>signup<i>!!</i></h1>
+    <input type="text" name="userR" id="userR" placeholder="enter username" autocomplete="new-username"/>
+   <input type="password" name="passR" id="passR" placeholder="enter password" autocomplete="new-password"/>
+    <button id="btnR" type="button">Sign Up
+    </button>
+    <div class="reply3"></div>
+    <button id="btnLD"> login </button>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+     const btnRD = document.querySelector('#btnRD');
+     const password = document.querySelector('#password');
+     const passR = document.querySelector('#passR');
+     
+     const username = document.querySelector('#username');
+     const userR = document.querySelector('#userR');
+     
+         const logincontainer = document.querySelector('.container');
+         const Register = document.querySelector('.Register');
          
-         button.addEventListener("click", () => {
-             
+         const reply = document.querySelector('.reply');
+         const reply2 = document.querySelector('.reply2');
+         const reply3 = document.querySelector('.reply3');
+         
+         const userMsg = document.querySelector('#userMsg');
+         
+         //buttons
+         const msgbtn = document.querySelector('#msgbtn');
+         
+         const loginbtn = document.querySelector('#loginbtn');
+         const RDbtn = document.querySelector('#btnRD');
+         const btnLD = document.querySelector('#btnLD');
+         const regbtn = document.querySelector('#btnR');
+         
+         //event listener
+         loginbtn.addEventListener("click", () => {
+       if(username.length === 0) {
+      return;
+              }
+              
              const userinfo = {
-                  name :username.value
+                  name :username.value,
+                  password: password.value
              }
              
              fetch('/user' , {
              method : 'POST',
             headers : {'content-type' : 'application/json'},
              body : JSON.stringify(userinfo)
-             
-              })
+             }).then(response => {
+               if(response.status === 200) {
+                    logincontainer.classList.add('hid');
+               } else {
+     console.log('user not found');
+               }   
+                  
+             return response.text() }).then(data => {
+                  reply.textContent = `${data}`;
+                  
+             }).catch(error => {
+                  console.log("error:",error);
+                  
+                  
+                  reply.textContent = `ultimate error`  
+                  
+               
+             });
          });
-    </script>
+         regbtn.addEventListener('click', () => {
+              
+              const reginfo = {
+              username: userR.value,
+              password: passR.value
+              }
+              fetch("/reg" , {
+               method: 'POST',
+               headers: {'Content-Type' : 'application/json'}
+              ,
+              body: JSON.stringify(reginfo)
+              
+            }).then(response => response.text()).then(data => {
+          const parsedData = JSON.parse(data)
+          reply3.textContent = parsedData.message;  
+              }).catch( error => {
+                   console.error('problem with fetch operation ',error)
+              });
+         });
+         msgbtn.addEventListener('click', () => {
+          const userMsgs = userMsg.value;
+         const name = username.value;
+          const UsermsgObj = {
+          Mesg: userMsgs,
+          name : name
+          }
+          fetch('MSG' , {
+               
+               method: 'POST',
+               headers: {'Content-Type' : 'application/json'},
+               body: JSON.stringify(UsermsgObj)
+          });
+          reply2.textContent = userMsgs;
+          userMsg.value = '';
+          userMsg.focus();
+         });
+         RDbtn.addEventListener('click', () => {
+    if(logincontainer.style.display !== 'none') {
+        logincontainer.style.display = 'none';
+        Register.style.display = 'block';
+    }
+});
+
+btnLD.addEventListener('click', () => {
+    if(Register.style.display !== 'none') {
+        Register.style.display = 'none';
+        logincontainer.style.display = 'block';
+    }
+});
+</script>a 
      </body>
 </html>

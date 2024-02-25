@@ -1,0 +1,7 @@
+db.run('INSERT INTO accounts (name , password) VALUES (?,?) ',[name], (err) => {
+                       if(err) {
+                            console.error(`failed to insert ${name} information`)
+                       } else {
+                            console.log(`${name}: ${password} has been inserted successfully`)
+                       }
+                  });
