@@ -7,6 +7,7 @@ const PORT = 3000;
 
 app.use(express.json());
 app.use('/font-awesome', express.static(path.join(__dirname, 'font-awesome')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/public', express.static(path.join(__dirname)));
 
 const db = new sqlite3.Database('user.db', (err) => {

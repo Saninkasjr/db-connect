@@ -1,44 +1,3 @@
-<!DOCTYPE html>
-<html>
-     <head>
-          <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>database fetch and update</title>
-          <link rel="stylesheet" href="/font-awesome/css/all.min.css">
-          <link rel="stylesheet" href="/public/style.css" type="text/css" media="all" />
-     </head>
-     <body>
-        
-    <div class="reply2"></div>
-    <div class="input-wrapper">
-         <textarea  type="text" name="userMsg" id="userMsg" placeholder="enter your message..."></textarea>
-        <button type="button" id="msgbtn"><i class="fas fa-bolt" id="sendButton"></i> </button>
-    </div>
-    <div class="container">
-  <div class="blur"></div>
-  <div class="login">
-    <h1>login<i>!!</i></h1>
-    <input type="text" name="username" id="username" placeholder="enter your username" autocomplete="username"/>
-   <input type="password" name="password" id="password" placeholder="enter your password" autocomplete="password"/>
-    <button id="loginbtn" type="button">Enter</button>
-    <div class="reply"><i> </i>
-    
-    </div> 
-    <button id="btnRD"> sign up? </button>
-    </div>
-    </div>
-    <div class="Register">
-  <div class="signup">
-    <h1>signup<i>!!</i></h1>
-    <input type="text" name="userR" id="userR" placeholder="enter username" autocomplete="new-username"/>
-   <input type="password" name="passR" id="passR" placeholder="enter password" autocomplete="new-password"/>
-    <button id="btnR" type="button">Sign Up
-    </button>
-    <div class="reply3"></div>
-    <button id="btnLD"> login </button>
-  </div>
-</div>
-<!-- <script type="text/javascript" charset="utf-8">
      const btnRD = document.querySelector('#btnRD');
      const password = document.querySelector('#password');
      const passR = document.querySelector('#passR');
@@ -146,7 +105,3 @@ btnLD.addEventListener('click', () => {
         logincontainer.style.display = 'block';
     }
 });
-</script> -->
-<script src="/js/script.js"></script>
-     </body>
-</html>
