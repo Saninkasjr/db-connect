@@ -1,13 +1,21 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 const sqlite3 = require('sqlite3').verbose();
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(session({
+    secret: 'B2A1C8',
+    resave: false,
+    saveUninitialized: true
+}));
 app.use('/font-awesome', express.static(path.join(__dirname, 'font-awesome')));
-app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('css', express.static(path.join(__dirname, 'view/css')));
+app.use('/view', express.static(path.join(__dirname, 'view')));
+app.use('/js', express.static(path.join(__dirname, 'view/js')));
 app.use('/public', express.static(path.join(__dirname)));
 
 const db = new sqlite3.Database('user.db', (err) => {
@@ -17,28 +25,44 @@ const db = new sqlite3.Database('user.db', (err) => {
           console.log('connection to SQLite database successful')
      }
 });
+
 app.get('/', (req, res)=> {
-     res.sendFile('app.html', {root: __dirname})
+     res.sendFile('view/login.html', {root: __dirname})
+     });
+app.get('/login', (req, res)=> {
+     res.sendFile('view/login.html', {root: __dirname})
+     });
+app.get('/signup', (req, res)=> {
+     res.sendFile('view/signup.html', {root: __dirname})
+     });
+/*app.get('/app',(req,res) => {
+     res.sendFile('view/app.html', {root: __dirname})
+});*/
+app.get('/username',(req,res) => {
+    res.send(req.session.username || '');
+});
+app.get('*', (req, res)=> {
+     res.send('path not found')
      });
  app.post('/user', (req,res) => {
 
      const { name, password } = req.body;
+     const pathname = path.join(__dirname, 'view', 'app.html');
      const query = 'SELECT * FROM accounts WHERE username = ? AND password =?';
      db.get(query,[name, password], (err, row) => {
           if(err) {
                console.error('error:' , err);
                res.status(500).send('internal server error');
-          } else {
-               if(row) {
-               console.log("user found",row);
-               res.status(200).json({message:'row.name logging..'});
+          } else if (row) {
+             req.session.username = row.username;
+             console.log("should work user found",row);
+               res.sendFile('view/app.html', {root: __dirname})
                
                } else {
                     console.log('user not found');
                   res.status(404).send('user not found');
                }
-          }
-     });
+          });
  });
  app.post('/reg', (req, res) => {
       const {username , password} = req.body;
@@ -50,7 +74,7 @@ app.get('/', (req, res)=> {
            } else {
                 if(row) {
                console.log('user exist',row);
-               res.status(409).json({message : ` the username ${row.username}  already exists`})
+               res.status(404).json({message : ` the username ${row.username}  already exists`})
                 } else {
                     res.status(200).send('accounts signed up');
           db.run("INSERT INTO accounts (username,password) VALUES (?,?)",[username, password], (err) => {

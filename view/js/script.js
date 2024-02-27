@@ -1,6 +1,4 @@
-     const btnRD = document.querySelector('#btnRD');
-     const password = document.querySelector('#password');
-     const passR = document.querySelector('#passR');
+const passR = document.querySelector('#passR');
      
      const username = document.querySelector('#username');
      const userR = document.querySelector('#userR');
@@ -18,17 +16,11 @@
          const msgbtn = document.querySelector('#msgbtn');
          
          const loginbtn = document.querySelector('#loginbtn');
-         const RDbtn = document.querySelector('#btnRD');
-         const btnLD = document.querySelector('#btnLD');
          const regbtn = document.querySelector('#btnR');
          
          //event listener
          loginbtn.addEventListener("click", () => {
-       if(username.length === 0) {
-      return;
-              }
-              
-             const userinfo = {
+              const userinfo = {
                   name :username.value,
                   password: password.value
              }
@@ -38,13 +30,14 @@
             headers : {'content-type' : 'application/json'},
              body : JSON.stringify(userinfo)
              }).then(response => {
-               if(response.status === 200) {
-                    logincontainer.classList.add('hid');
-               } else {
+               if (response.status === 200) {
+    console.log('user logging in')
+    window.location.href = '/view/app.html';
+}else {
      console.log('user not found');
                }   
                   
-             return response.text() }).then(data => {
+             return response.text()}).then(data => {
                   reply.textContent = `${data}`;
                   
              }).catch(error => {
@@ -68,10 +61,10 @@
               ,
               body: JSON.stringify(reginfo)
               
-            }).then(response => response.text()).then(data => {
-          const parsedData = JSON.parse(data)
-          reply3.textContent = parsedData.message;  
-              }).catch( error => {
+}).then(response => response.json())
+  .then(data => {
+      reply3.textContent = data.message;  
+  }).catch( error => {
                    console.error('problem with fetch operation ',error)
               });
          });
@@ -82,7 +75,7 @@
           Mesg: userMsgs,
           name : name
           }
-          fetch('MSG' , {
+          fetch('/MSG' , {
                
                method: 'POST',
                headers: {'Content-Type' : 'application/json'},
@@ -92,16 +85,4 @@
           userMsg.value = '';
           userMsg.focus();
          });
-         RDbtn.addEventListener('click', () => {
-    if(logincontainer.style.display !== 'none') {
-        logincontainer.style.display = 'none';
-        Register.style.display = 'block';
-    }
-});
-
-btnLD.addEventListener('click', () => {
-    if(Register.style.display !== 'none') {
-        Register.style.display = 'none';
-        logincontainer.style.display = 'block';
-    }
-});
+       
