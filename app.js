@@ -83,7 +83,7 @@ app.get('*', (req, res)=> {
                res.status(500).send('internal server error')
           } else {
                console.log(`${username} registered! login to access account`);
-               
+               res.status(200).send('registered! login to access account')
           }
       
       });
