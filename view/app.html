@@ -14,35 +14,6 @@
          <textarea  type="text" name="userMsg" id="userMsg" placeholder="enter your message..."></textarea>
         <button type="button" id="msgbtn"><i class="fas fa-bolt" id="sendButton"></i> </button>
     </div>
-<script type="text/javascript" charset="utf-8">
-         const MsgDiv = document.querySelector('.MsgDiv');
-         const userMsg = document.querySelector('#userMsg');
-         
-         //buttons
-         const msgbtn = document.querySelector('#msgbtn');
-         
-         msgbtn.addEventListener('click', () => {
-          fetch('/username').then(response => response.text()).then(username => {
-          const userMsgs = userMsg.value;
-         const name = username.value;
-          const UsermsgObj = {
-          Mesg: userMsgs,
-          name : username
-          }
-           fetch('/MSG' , {
-               
-               method: 'POST',
-               headers: {'Content-Type' : 'application/json'},
-               body: JSON.stringify(UsermsgObj)
-          }); 
-          MsgDiv.textContent = userMsgs;
-          userMsg.value = '';
-          userMsg.focus();
-          }).catch(error => {
-               console.error(`error occurred ${error}`)
-          });
-         });
-       
-</script>
+    <script src="/js/home.js" type="text/javascript" charset="utf-8"></script>
      </body>
 </html>

@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
-    <link rel="stylesheet" href="view/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="view/css/signup.css" type="text/css" media="all" />
 </head>
 <body>
     <div class="Register">
@@ -17,37 +17,6 @@
             <button id="btnLD"><a href="http://localhost:3000/login">Login?</a></button>
         </div>
     </div>
-<script type="text/javascript" charset="utf-8">
-          
-     const passR = document.querySelector('#passR');
-     const userR = document.querySelector('#userR');
-    const logincontainer = document.querySelector('.container');
-         const Register = document.querySelector('.Register');
-         
-         const reply3 = document.querySelector('.reply3');
-         const regbtn = document.querySelector('#btnR');
-       regbtn.addEventListener('click', () => {
-    if(userR.value.trim() === "" || passR.value.trim() === "") {
-        alert("Empty fields detected, you're banned!");
-    } else {
-        const reginfo = {
-            username: userR.value,
-            password: passR.value
-        };
-        fetch("/reg", {
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify(reginfo)
-        }).then(response => response.text())
-          .then(data => {
-              const parsedData = JSON.parse(data);
-              reply3.textContent = parsedData.message;  
-          })
-          .catch(error => {
-              console.error('Problem with fetch operation:', error);
-          });
-    }
-});
-</script>
+<script src="/js/signup.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

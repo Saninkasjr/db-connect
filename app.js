@@ -76,14 +76,13 @@ app.get('*', (req, res)=> {
                console.log('user exist',row);
                res.status(404).json({message : ` the username ${row.username}  already exists`})
                 } else {
-                    res.status(200).send('accounts signed up');
           db.run("INSERT INTO accounts (username,password) VALUES (?,?)",[username, password], (err) => {
           if(err) {
                console.log(`failed to register ${username}`, err);
-               res.status(500).send('internal server error')
+               
           } else {
                console.log(`${username} registered! login to access account`);
-               res.status(200).send('registered! login to access account')
+               res.status(200).json({message:`${username} registered! login to access account`})
           }
       
       });

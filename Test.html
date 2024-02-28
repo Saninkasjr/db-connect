@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Resize Textarea</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        textarea {
+            font-size: 18px;
+            /* Initial height set for content visibility */
+            min-height: 50px;
+            /* Allow vertical resizing up to 200px */
+            resize: vertical;
+            overflow-y: hidden;
+            max-height: 200px; /* Limit maximum height */
+        }
+
+        textarea:focus {
+            /* Show scrollbar only when needed */
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="my-text" placeholder="Type to autoresize this"></textarea>
+
+    <script>
+        const myText = document.getElementById("my-text");
+
+        // Set initial height based on scrollHeight (optional for better responsiveness)
+        // myText.style.height = `${myText.scrollHeight}px`;
+
+        myText.addEventListener("input", function(){
+            this.style.height = "auto";
+            this.style.height = `${this.scrollHeight}px`;
+        });
+    </script>
+</body>
+</html>

@@ -33,20 +33,22 @@ a {
   justify-content: center;
 }
 #userMsg {
-       font-size: 1.25rem;
-       border-radius: 15px;
-       border: 1px solid transparent;
-       background-color: #f9f9f9;
-       padding: 10px;
-       outline: none 2px black  ;
-       min-width: 70%;
-       max-width: 70%;
-      color: #333;
-       placeholder-color: #999;
-       box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-       margin-right: 10px;
-       font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.25rem;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  outline: none;
+  width: 70%;
+  color: #333;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  margin-right: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+#userMsg::placeholder {
+  color: #999;
+}
+
 /*this the styling for the container of the login */
 body {
   font-family: Georgia;
