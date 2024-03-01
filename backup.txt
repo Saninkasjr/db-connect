@@ -1,3 +1,31 @@
+Is backup.txt
+function displayMessages() {
+  fetch('/message', {
+  headers: { 'Content-Type': 'application/json' },
+  method: 'GET',
+}).then(response => response.json()).then(data => {
+  data.forEach(item => {
+    const { name, message } = item;
+    
+    const MsgDiv = document.querySelector('.MsgDiv');
+    const nameElem = document.createElement('p');
+    nameElem.textContent = `${name}: ${message}`;
+    document.body.appendChild(nameElem);
+
+var textWidth = nameElem.offsetWidth;
+nameElem.parentNode.removeChild(nameElem);
+var maxWidth = 350;
+nameElem.style.width = Math.min(textWidth, maxWidth) + "px";
+nameElem.style.maxWidth = maxWidth + "px";
+    MsgDiv.appendChild(nameElem);
+  });
+}).catch(error => {
+  console.error('error', error)
+});
+}
+displayMessages();
+setInterval(displayMessages,5000);
+
 resize: vertical;
   overflow-y: hidden;
   min-height: 50px;
