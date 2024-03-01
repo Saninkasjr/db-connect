@@ -1,7 +1,18 @@
-db.run('INSERT INTO accounts (name , password) VALUES (?,?) ',[name], (err) => {
-                       if(err) {
-                            console.error(`failed to insert ${name} information`)
-                       } else {
-                            console.log(`${name}: ${password} has been inserted successfully`)
-                       }
-                  });
+resize: vertical;
+  overflow-y: hidden;
+  min-height: 50px;
+  max-height: 200px;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  background-color: transparent;
+  padding: 10px;
+  outline: none;
+  width: 70%;
+  color: #333;
+  outline: none;
+  border:none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  min-height: 30px; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;

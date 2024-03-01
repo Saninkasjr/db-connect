@@ -30,7 +30,7 @@ loginbtn.addEventListener("click", () => {
         }
         return response.text();
     }).then(data => {
-        reply.textContent = `${data}`;
+        reply.textContent = `logging in...`;
     }).catch(error => {
         console.log("error:", error);
         reply.textContent = `ultimate error`;

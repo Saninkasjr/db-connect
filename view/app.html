@@ -9,10 +9,14 @@
      </head>
      <body>
         
-    <div class="MsgDiv"></div>
+    <div id="msgBubble" class="MsgDiv"></div>
     <div class="input-wrapper">
-         <textarea  type="text" name="userMsg" id="userMsg" placeholder="enter your message..."></textarea>
-        <button type="button" id="msgbtn"><i class="fas fa-bolt" id="sendButton"></i> </button>
+      <div class="texbox">
+        <textarea type="text" name="userMsg" id="userMsg" class="mytextbox" placeholder="enter your message..." > </textarea>
+      </div>
+         <div class="btn">
+           <button type="button" id="msgbtn"><i class="fas fa-bolt" id="sendButton"></i> </button>
+         </div>
     </div>
     <script src="/js/home.js" type="text/javascript" charset="utf-8"></script>
      </body>

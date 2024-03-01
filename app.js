@@ -26,6 +26,21 @@ const db = new sqlite3.Database('user.db', (err) => {
      }
 });
 
+app.get('/message', (req,res) => {
+  msg = 'SELECT message FROM messages ORDER BY timestamp ASC'
+  db.all(msg,(err,row) => {
+    if(err) {
+      console.error('error:',err)
+      res.status(500).send('internal server error');
+    } else if(row) {
+      
+      res.status(200).json(row)
+    } else {
+       console.log('error: failed to find messages')
+       res.status(409).send('unable to find');
+    }
+});
+});
 app.get('/', (req, res)=> {
      res.sendFile('view/login.html', {root: __dirname})
      });
@@ -92,7 +107,7 @@ app.get('*', (req, res)=> {
  });
  app.post('/MSG', (req, res) => {
       const { name , Mesg} = req.body;
-     db.run('INSERT INTO usermsg (name , message) VALUES (?,?)',[name , Mesg], (err) => {
+     db.run('INSERT INTO messages (name , message) VALUES (?,?)',[name , Mesg], (err) => {
           if(err) {
                console.error('failed to insert message ', err);
           } else {
