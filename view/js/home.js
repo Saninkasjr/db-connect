@@ -1,14 +1,33 @@
-
 window.onload = () => {
-fetch('/message', {
-  headers: { 'Content-Type': 'application/json' },
-  method: 'GET',
-}).then(response => response.text()).then(data => {
-  const Pdata = JSON.parse(data)
-      alert(data.message)
-}).catch(error => {
-  console.error('error', error)
-});
+  fetch('/message', {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'GET',
+  })
+  .then(response => response.json())
+  .then(data => {
+    const MsgDiv = document.querySelector('.MsgDiv');
+
+    // Create a document fragment to hold the new message elements
+    const fragment = document.createDocumentFragment();
+
+    // Iterate over each message and create a new message element
+    data.forEach(item => {
+      const { name, message } = item;
+      const messageElem = document.createElement('p');
+      messageElem.textContent = `${name}: ${message}`;
+      messageElem.style.maxWidth = '350px'; // Set max width directly
+
+      // Append the new message element to the document fragment
+      fragment.appendChild(messageElem);
+    });
+
+    // Append the document fragment to the message container
+    MsgDiv.appendChild(fragment);
+  })
+  .catch(error => {
+    console.error('Error fetching messages:', error);
+  });
+
   const username = sessionStorage.getItem('username');
   fetch('/username')
     .then(response => response.text())

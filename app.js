@@ -27,20 +27,28 @@ const db = new sqlite3.Database('user.db', (err) => {
 });
 
 app.get('/message', (req,res) => {
-  msg = 'SELECT message FROM messages ORDER BY timestamp ASC'
-  db.all(msg,(err,row) => {
+  query = 'SELECT name,message FROM messages ORDER BY id'
+  try {
+      db.all(query,[],(err,rows) => {
     if(err) {
       console.error('error:',err)
       res.status(500).send('internal server error');
-    } else if(row) {
-      
-      res.status(200).json(row)
+    } else if(rows) {
+ const Fdata = rows.map(({name, message, id}) => ({name, message, id}));
+ return res.status(200).json(Fdata)
     } else {
        console.log('error: failed to find messages')
-       res.status(409).send('unable to find');
+       res.status(300).send('unable to find');
     }
 });
-});
+
+  } catch {
+    return res.json({
+        status: 500, 
+        success: false,
+        });
+        console.error('unable to fetch');
+  } });
 app.get('/', (req, res)=> {
      res.sendFile('view/login.html', {root: __dirname})
      });
