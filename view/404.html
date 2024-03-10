@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERROR 404</title>
+  <link rel="stylesheet" href="view/css/404.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="view/font-awesome/css/all.min.css">
+  
+</head>
+
+<body>
+  
+  <div class="iwrapper">
+    <img class="img" src="img/404.jpg" alt="404_error_image" />
+  </div>
+  <h1>PAGE NOT FOUND</h1>
+  <p>error 404 : the entered path doesn't exist</p>
+  <div class="btnWrapper">
+    <div class="btnWrapper2">
+      <button class="login"><i class="fas fa-share"></i> ..  HOME <i class="fas fa-home"></i> </button>
+      <button class="signup">SIGNUP? </button>
+    </div>
+  </div>
+  
+  <script type="text/javascript" charset="utf-8">
+   const login = document.querySelector('.login')
+   const signup = document.querySelector('.signup')
+  btnArray = [login,signup]
+  btnArray.forEach(btn => {
+   btn.addEventListener("click", () => {
+    location.href = 'http://localhost:3000'
+   })
+  })
+  </script>
+</body>
+
+</html>

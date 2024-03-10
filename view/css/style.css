@@ -9,16 +9,17 @@ body {
   height: 100vh;
   width: 100vw;
   color: white;
-  background-image: url('/view/img/water.jpg');
+  background-image: url('/view/img/line2.jpg');
   background-size: cover;
 }
 #msgBubble {
-  height: 89.5%;
+  height: 87.5%;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   overflow-y: scroll;
+  transition: all 5s;
 }
 #userMsg {
   font-size: 18px;
@@ -27,7 +28,7 @@ body {
   outline: none;
   border: none;
   background: #59C3C3;
-  opacity: 0.9;
+  opacity: 1;
   backdrop-filter: blur(2px);
   color: #fff;
   margin-left: -5px;
@@ -99,6 +100,7 @@ p {
   min-height: 20px;
   background-color: #59C3C3;
   padding: 12px;
+  margin-top:20px;
   margin: 15px 20px;
   border-radius: 25px;
   resize: vertical;
@@ -112,3 +114,34 @@ p {
   overflow-wrap: break-word;
   text-overflow: ellipsis;
 }
+.heading {
+  color: rgba(0, 50, 105, 0.8);
+  font-family: Monospace;
+  text-align: right;
+  margin-left: 200px;
+  opacity: 0.5;
+  position: absolute;
+}
+.float {
+  position: absolute;
+  right: 40px;
+  bottom:150px;
+  height: 30px;
+  width: 30px ;
+  z-index: 999;
+}
+.float > button {
+  padding: 5px;
+  height: 47px;
+  width: 47px ;
+  border-radius: 50%;
+  border: none;
+  z-index: 999;
+  background: black;
+  border:solid white ;
+  outline: none;
+}
+.float > button > i {
+ color: white;
+}
+

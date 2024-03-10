@@ -1,0 +1,79 @@
+
+    body {
+      background: rgba(0, 0, 0, 0.9);
+      color: aliceblue;
+    }
+    
+    h1 {
+      text-align: center;
+      font-family: Georgia;
+      color: #3D64A8;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5%;
+    }
+    
+    label {
+      margin-left: 15%;
+      text-align: center;
+      font-family: Georgia;
+      font-size: 30px;
+    }
+    
+    p {
+      font-family: Georgia;
+      font-size: 15px;
+      padding-left: 4%;
+      padding-right: 4%;
+      text-align: center;
+    }
+    
+    .login,
+    .signup {
+      color: #3D64A8;
+      font-family:Georgia;
+      font-weight: 800;
+      background: none;
+      padding: 0px 0px;
+      height: auto;
+      width: auto;
+      outline: none;
+      border: none;
+      margin-top: 10px;
+      font-size: 2rem;
+      z-index: 100;
+    }
+    
+    .signup {
+      margin-left: 10vw;
+      display: none;
+    }
+    
+    .btnWrapper2 {
+      display: block;
+    }
+    
+    .btnWrapper {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: auto;
+      
+    }
+    i {
+      color:#3D64A8 ;
+      width: 30px;
+      height: 30px;
+    }
+    
+    .iwrapper {
+      margin-top: 20%;
+    }

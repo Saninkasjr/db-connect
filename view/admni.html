@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+   <link rel="stylesheet" href="view/admn/admn.css" type="text/css" media="all" />
+ 
+  </head>
+  <body> 
+  <div class="heading">
+    <h1> ADMINISTRATION </h1> <br />
+  </div>
+   <div class="createC">
+    <div class="heading2">
+       <h2>CREATION MODE</h2>
+    </div>
+    <div class="button-container">
+      <button type="button" class="show" id="showCreateUi">CREATE USER</button>
+      <button type="button" class="show" id="showMsgUi">CREATE MSG</button>
+    </div>
+  <div class="create-userDiv">
+     <h2 class="h22">the user creator </h2>
+     <input type="text" name="username" id="username" value="" placeholder="create username" />
+     <input type="password" name="password" id="password" value="" placeholder="create password" /><button type="button" class="createbtn" id="createbtn"> create user </button>
+  </div>
+  <div class="create-userMsg">
+    <h2 class="h2">create message instance</h2>
+    <textarea name="message" id="userMsg" placeholder="Enter your message"></textarea>
+     <input type="text" name="UserMsgId" id="UserMsgId" value="" placeholder="Enter username" /><button type="button" class="Msgbtn" id="Msgbtn"> create msg</button>
+  </div>
+  <div class="Container-CreateUserDiv">
+      <div class="createResponse">
+    
+  </div>
+  </div>
+  </div>
+  <div class="read">
+    <div class="heading2">
+       <h2>READONLY MODE</h2>
+    </div>
+  <div class="Data-manipulation">
+    <textarea name="data" id='input' placeholder="enter your query, admni"></textarea> <br />
+    <button type="button" class="btn" id="btn"> GET ACCOUNTS </button>
+    <button type="button" id="btnM" class="btn">GET MESSAGE</button>
+  </div>
+  <div class="Container-DataContainer">
+      <div class="data-Container">
+    
+  </div>
+  </div>
+  </div>
+  
+  <div class="modes">
+    
+    <div class="create">
+       <button id="createBtn" class="crud">CREATE</button>
+    </div>
+    <div id="readonly" class="readonly">
+       <button id="r" class="crud">READONLY</button>
+    </div>
+    <div class="update">
+       <button  class="crud">UPDATE</button>
+    </div>
+    <div class="delete">
+       <button class="crud">DELETE</button>
+    </div>
+    
+  </div>
+    <script src="view/admn/admn.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

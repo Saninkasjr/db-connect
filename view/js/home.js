@@ -1,6 +1,5 @@
-
 window.onload = () => {
-  // Define a function to fetch messages from the server
+  // the function for fetching messages from the server
 function fetchMessages() {
   fetch('/message', {
     headers: { 'Content-Type': 'application/json' },
@@ -42,18 +41,8 @@ document.body.appendChild(nameElem);
       console.error('Error fetching messages:', error);
     });
 }
-
-// Call the function once to fetch the initial messages
 fetchMessages();
-
-// Set an interval to call the function every 10 seconds
 setInterval(fetchMessages, 10000);
-
-// Add some CSS to the MsgDiv element
-const MsgDiv = document.querySelector('.MsgDiv');
-MsgDiv.style.overflowY = 'auto'; // Enable vertical scrolling
-
-  const username = sessionStorage.getItem('username');
   fetch('/username')
     .then(response => response.text())
     .then(username => {
@@ -79,16 +68,12 @@ MsgDiv.style.overflowY = 'auto'; // Enable vertical scrolling
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(UsermsgObj)
-          })
-            .then(response => {
+          }).then(response => {
               if (!response.ok) {
                 throw new Error('Network response was not ok');
               }
-              // Handle successful response
-              // For example, you can log a success message
               console.log('Message sent successfully!');
-            })
-            .catch(error => {
+            }).catch(error => {
               // Handle fetch errors
               console.error('Error sending message:', error);
             });
@@ -120,11 +105,14 @@ MsgDiv.style.overflowY = 'auto'; // Enable vertical scrolling
         })
       }
     })
-  /*const mytextbox = document.querySelector(".mytextbox");
-  mytextbox.addEventListener("input", function () {
-    this.style.height = "auto";
-    this.style.height = `${this.scrollHeight}px`;
-  });*/
 }
+const goDownbtn = document.querySelector('.float').addEventListener('click' ,()=> {
+       const MsDiv = document.querySelector('.MsgDiv');
+       MsDiv.firstChild.scrollIntoView();
+     })
 
-
+const inputField = document.querySelector('.mytextbox').addEventListener('focus', () => {
+  const inputWraaper = document.querySelector('.input-wrapper')
+  inputWraaper.style.paddingTop = `${24}px`;
+  
+})

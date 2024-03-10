@@ -1,0 +1,253 @@
+ body {
+   background: rgba(0, 50, 150, 0.9);
+   padding: 0;
+   margin: 0;
+   height: 100vh;
+   width: 100vw;
+   font-family: Georgia;
+ }
+ 
+ .heading , .heading2 {
+   display: flex;
+   justify-content: center;
+   color: White;
+ }
+ 
+ .Data-manipulation {
+   display: flex;
+   align-content: center;
+   justify-content: center;
+   width: 100%;
+ }
+ 
+ .Data-manipulation>textarea {
+   background: transparent;
+   border-radius: 15px;
+   padding: 10px;
+   border: solid azure;
+   width: 70%;
+   height: 20px;
+   margin-right: 10px;
+   display: none;
+ }
+ 
+ .Data-manipulation>textarea:focus {
+   background: rgba(0, 100, 200, 0.5);
+   outline: none;
+   border: none;
+ }
+ 
+ .Data-manipulation>textarea::placeholder {
+   color: azure;
+   text-align: left;
+   font-size: 1.05rem;
+   
+ }
+ 
+ .data-Container {
+   height: 70%;
+   width: 90%;
+   border-radius:5px ;
+   overflow:  scroll ;
+ }
+ 
+ .btn {
+   margin-top: 2px;
+   margin: 10px;
+   background: transparent;
+   outline: none;
+   color: white;
+   border: solid white;
+   border-radius: 15px;
+   padding: 10px;
+   font: 2rem;
+   box-shadow: 0px 5px 5px rgba(0, 100, 220, 0.9);
+   
+ }
+ 
+ .Container-DataContainer {
+   margin-top: 5vh;
+   height: 70vh;
+   width: 100vw;
+   overflow: scroll;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+ }
+ 
+ .parentEl {
+   display: block;
+   background: rgba(0, 100, 220, 0.97);
+   padding: 10px;
+   margin-bottom: 10px;
+   color: white;
+   border-radius: 5px;
+ }
+ 
+ .userEl {
+  display: none;
+ }
+ 
+ .passEl {
+   margin-left: 30px;
+ }
+ 
+ .idEl {
+   display: none;
+ }
+ .read {
+   display: none;
+   opacity: 0;
+   transition-duration:all 1s;
+ }
+ .modes {
+   display: flex;
+   justify-content: center; 
+   align-content: center; 
+   width: 86vw;
+   position: fixed;
+   bottom: 2vh;
+   left: 6%;
+   z-index: 99;
+   
+ }
+ .crud {
+   border:  none  ;
+   outline: none;
+   background: 
+   rgba(0, 100, 220, 0.9);
+   border-radius: 5px;
+   padding: 10px;
+  margin: 10px;
+  color: White;
+  font-size: 0.8;
+ }
+ crud:hover {
+   background: White;
+   color: blue;
+ }
+ .active {
+   font-family: Monospace;
+   margin-top: -10px;
+   transition: 0.5s;
+ }
+ .h2 {
+   margin-left: 40;
+ }
+ 
+ /* the create css start*/
+  .create-userDiv {
+   display: none;
+   align-content: center;
+   justify-content: center;
+   width: 100%;
+ }
+ .create-userMsg {
+   display: none;
+   align-content: center;
+   justify-content: center;
+   width: 100%;
+ }
+ 
+ .create-userDiv > input , .create-userMsg > input {
+   background: white;
+   border-radius: 5px;
+   padding: 10px;
+   border: solid white;
+   width: 50%;
+   height: 20px;
+   margin-top: 10px;
+   margin-left: 5.3%;
+ }
+ 
+ .create-userDiv > input:focus , .create-userMsg > input:focus {
+   background: white;
+   outline: solid rgba(0, 100, 180, 0.9);
+   border: none;
+ }
+ 
+ .create-userDiv> input::placeholder , .create-userMsg > input::placeholder {
+   text-align: left;
+   font-size: 0.9rem;
+   font-family: Monospace;
+   
+ }
+ 
+ .createResponse {
+   height: 20%;
+   width: 90%;
+   border-radius:5px ;
+   padding: 10px;
+   overflow:  scroll ;
+   background: White;
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+.createbtn , .Msgbtn{
+   margin: 10px;
+   background-color: skyblue;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 7px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: Georgia;
+  transition: background-color 0.3s ease;
+  
+ }
+ .button-container {
+   display: flex; 
+   align-content: center;
+   justify-content: center;
+ }
+ .Container-CreateUserDiv {
+   margin-top: 5vh;
+   height: 70vh;
+   width: 100vw;
+   overflow: scroll;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+ } 
+ .show {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: auto;
+  font-family:  Georgia;
+  transition: background-color 0.3s ease;
+}
+#userMsg {
+  width: 80%;
+  background: white;
+   border-radius: 5px;
+   padding: 10px;
+   border: solid white;
+   height: 20px;
+   margin-top: 10px;
+   margin-left: 5.3%;
+}
+.h2 {
+  text-align: center; 
+  color: White;
+}
+.h22 {
+  margin-left: 15px;
+  text-align: left; 
+  color: White;
+}
+.createC {
+  display: none;
+}
+.ele {
+  margin: 4px 0px;
+}
+ /* the create css end */
